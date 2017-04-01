@@ -20,6 +20,7 @@
 		BD09EF801E837903000AC6CC /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD09EF7F1E837903000AC6CC /* HomeViewController.m */; };
 		BD09EFA31E83A0BD000AC6CC /* PageTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = BD09EFA21E83A0BD000AC6CC /* PageTitleView.m */; };
 		BD09EFA81E83A880000AC6CC /* UIBarButtonItem+MTCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = BD09EFA71E83A87F000AC6CC /* UIBarButtonItem+MTCategory.m */; };
+		BD8FD47A1E8E834700A43AD9 /* PageContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = BD8FD4791E8E834700A43AD9 /* PageContentView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,9 @@
 		BD09EFA41E83A75F000AC6CC /* CommonValue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonValue.h; sourceTree = "<group>"; };
 		BD09EFA61E83A87F000AC6CC /* UIBarButtonItem+MTCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+MTCategory.h"; sourceTree = "<group>"; };
 		BD09EFA71E83A87F000AC6CC /* UIBarButtonItem+MTCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+MTCategory.m"; sourceTree = "<group>"; };
+		BD8FD4781E8E834700A43AD9 /* PageContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageContentView.h; sourceTree = "<group>"; };
+		BD8FD4791E8E834700A43AD9 /* PageContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageContentView.m; sourceTree = "<group>"; };
+		BD8FD47B1E8E93EF00A43AD9 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +64,7 @@
 		BD09EF321E8365C0000AC6CC = {
 			isa = PBXGroup;
 			children = (
+				BD8FD47B1E8E93EF00A43AD9 /* PrefixHeader.pch */,
 				BD09EF3D1E8365C0000AC6CC /* OC_Live */,
 				BD09EF3C1E8365C0000AC6CC /* Products */,
 			);
@@ -238,6 +243,8 @@
 			children = (
 				BD09EFA11E83A0BD000AC6CC /* PageTitleView.h */,
 				BD09EFA21E83A0BD000AC6CC /* PageTitleView.m */,
+				BD8FD4781E8E834700A43AD9 /* PageContentView.h */,
+				BD8FD4791E8E834700A43AD9 /* PageContentView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -367,6 +374,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD8FD47A1E8E834700A43AD9 /* PageContentView.m in Sources */,
 				BD09EF431E8365C0000AC6CC /* AppDelegate.m in Sources */,
 				BD09EF781E836C90000AC6CC /* MainViewController.m in Sources */,
 				BD09EF401E8365C0000AC6CC /* main.m in Sources */,
@@ -561,6 +569,7 @@
 				BD09EF541E8365C0000AC6CC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
