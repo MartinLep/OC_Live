@@ -99,7 +99,7 @@ static NSString *collectionViewCell = @"CellIdentify";
         targetIndex = sourceIndex + 1;
         
         if(targetIndex >= _childControllersArray.count){
-            targetIndex = _childControllersArray.count - 1;
+            targetIndex = (int)_childControllersArray.count - 1;
         }
         
         if(currentOffsetX - _startOffsetX == scrollViewW){
