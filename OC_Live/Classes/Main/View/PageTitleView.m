@@ -16,6 +16,7 @@
 @property (nonatomic,strong) NSArray *titleArray;
 @property (nonatomic,strong) UIScrollView *scrollView;
 @property (nonatomic,strong) UIView *scrollLine;
+@property (nonatomic,assign) NSInteger currentIndex;
 
 @end
 @implementation PageTitleView
@@ -23,6 +24,7 @@
 - (instancetype)initWithFrame:(CGRect)frame titles:(NSArray *)titleArray{
     if(self = [super initWithFrame:frame]){
         self.titleArray = titleArray;
+        _currentIndex = 0;
         [self setUpUI];
     }
     return self;
@@ -73,9 +75,35 @@
         label.font = [UIFont systemFontOfSize:16];
         label.textColor = [UIColor darkGrayColor];
         label.textAlignment = NSTextAlignmentCenter;
-        
+        [label setUserInteractionEnabled:true];
         [_scrollView addSubview:label];
         [self.mLabelsArray addObject:label];
+        
+        UITapGestureRecognizer *tap =  [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGes:)];
+        [label addGestureRecognizer:tap];
+    }
+}
+
+- (void)tapGes:(UITapGestureRecognizer *)tapGes{
+    UILabel *currentLabel = (UILabel *)tapGes.view;
+    UILabel *oldLabel = _mLabelsArray[_currentIndex];
+    
+    //切换文字颜色
+    oldLabel.textColor = [UIColor darkGrayColor];
+    currentLabel.textColor = [UIColor orangeColor];
+    
+    _currentIndex = currentLabel.tag;
+    
+    //滚动条的位置发生改变
+    CGFloat scrollLineX = _currentIndex * _scrollLine.frame.size.width;
+    [UIView animateWithDuration:0.15 animations:^{
+        CGRect frame = self.scrollLine.frame;
+        CGRect newFrame = CGRectMake(scrollLineX, frame.origin.y, frame.size.width, frame.size.height);
+        self.scrollLine.frame = newFrame;
+    }];
+    
+    if(self.delegate){
+        [_delegate pageTitleView:self selectedIndex:_currentIndex];
     }
 }
 
@@ -89,6 +117,24 @@
     UILabel *firstLabel = [_mLabelsArray firstObject];
     [_scrollView addSubview:self.scrollLine];
     _scrollLine.frame = CGRectMake(firstLabel.frame.origin.x, self.frame.size.height - ScrollLineWith, firstLabel.frame.size.width, ScrollLineWith);
+}
+
+- (void)setTitleWithProgress:(CGFloat)progress sourceIndex:(NSInteger)source targetIndex:(NSInteger)target{
+    UILabel *sourceLabel = _mLabelsArray[source];
+    UILabel *targetLabel = _mLabelsArray[target];
+    
+    CGFloat NormalColor[3] = {85.0,85.0,85.0};
+    CGFloat SelectColor[3] = {255.0,128.0,0.0};
+    CGFloat colorData[3] = {SelectColor[0]-NormalColor[0],SelectColor[1]-NormalColor[1],SelectColor[2]-NormalColor[2]};
+    //处理滑块
+    CGFloat moveToX = targetLabel.frame.origin.x - sourceLabel.frame.origin.x;
+    CGFloat moveX = progress * moveToX;
+    CGRect frame = _scrollLine.frame;
+    
+    _scrollLine.frame = CGRectMake(sourceLabel.frame.origin.x+moveX, frame.origin.y, frame.size.width, frame.size.height);
+    sourceLabel.textColor = [UIColor pwColorWithRed:SelectColor[0]-colorData[0]*progress green:SelectColor[1]-colorData[1]*progress blue:SelectColor[2]-colorData[2]*progress];
+    targetLabel.textColor = [UIColor pwColorWithRed:NormalColor[0]+colorData[0]*progress green:NormalColor[1]+colorData[1]*progress blue:NormalColor[2]+colorData[2]*progress];
+    _currentIndex = target;
 }
 
 
