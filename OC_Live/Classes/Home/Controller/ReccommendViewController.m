@@ -6,10 +6,12 @@
 //  Copyright © 2017年 MartinLee. All rights reserved.
 //
 
+#import "CollectionHeraderView.h"
 #import "ReccommendViewController.h"
 #import "CollectionNormalViewCell.h"
-static NSString *NormalCellID = @"NarmalCellId";
+static NSString *NormalCellID = @"NormalCellID";
 static NSString *PrettyCellID = @"PrettyCellID";
+static NSString *HeaderViewID = @"HeaderViewID";
 
 @interface ReccommendViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 
@@ -52,6 +54,7 @@ static NSString *PrettyCellID = @"PrettyCellID";
         _collection.dataSource = self;
         _collection.backgroundColor = [UIColor whiteColor];
         [_collection registerClass:[CollectionNormalViewCell class] forCellWithReuseIdentifier:NormalCellID];
+        [_collection registerNib:[UINib nibWithNibName:@"CollectionHeraderView" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:HeaderViewID];
     }
     return _collection;
 }
@@ -75,10 +78,15 @@ static NSString *PrettyCellID = @"PrettyCellID";
     return cell;
 }
 
-- (CGSize) collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
-{
+- (CGSize) collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
     return CGSizeMake(_ItemW,_NormalItemH);
 }
+
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath{
+    UICollectionReusableView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:HeaderViewID forIndexPath:indexPath];
+    return headerView;
+}
+
 @end
 
 
