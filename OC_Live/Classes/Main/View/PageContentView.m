@@ -82,7 +82,6 @@ static NSString *collectionViewCell = @"CellIdentify";
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
     _startOffsetX = scrollView.contentOffset.x;
-    
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
@@ -92,10 +91,11 @@ static NSString *collectionViewCell = @"CellIdentify";
     CGFloat currentOffsetX = scrollView.contentOffset.x;
     CGFloat scrollViewW = scrollView.bounds.size.width;
     
+    NSLog(@"currentOffsetX = %f",currentOffsetX);
     if(currentOffsetX > _startOffsetX){
         //左滑
-        progress = (currentOffsetX - _startOffsetX)/scrollViewW;
-        sourceIndex = (int)currentOffsetX/scrollViewW;
+        progress = currentOffsetX/scrollViewW - floor(currentOffsetX/scrollViewW);
+        sourceIndex = (int)(currentOffsetX/scrollViewW);
         targetIndex = sourceIndex + 1;
         
         if(targetIndex >= _childControllersArray.count){
@@ -123,7 +123,6 @@ static NSString *collectionViewCell = @"CellIdentify";
 
 - (void)setCurrentIndex:(NSInteger)index{
     CGFloat offsetX = index * _collectionView.bounds.size.width;
-//    [_collectionView setContentOffset:CGPointMake(offsetX, 0)];
     [_collectionView setContentOffset:CGPointMake(offsetX, 0) animated:true];
 }
 

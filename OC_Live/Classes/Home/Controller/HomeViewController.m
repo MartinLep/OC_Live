@@ -7,6 +7,7 @@
 //
 
 #import "UIBarButtonItem+MTCategory.h"
+#import "ReccommendViewController.h"
 #import "HomeViewController.h"
 #import "PageContentView.h"
 #import "PageTitleView.h"
@@ -60,7 +61,9 @@
         CGRect frame = CGRectMake(0, StatusBarH + NavigationBarH + TitleHeight, ScreenW, contentH);
         NSMutableArray *mArray = [[NSMutableArray alloc] init];
         NSArray *colorArray = [NSArray arrayWithObjects:[UIColor blueColor],[UIColor yellowColor],[UIColor whiteColor],[UIColor orangeColor], nil];
-        for (int i = 0; i < 4; i++) {
+        ReccommendViewController *view = [[ReccommendViewController alloc] init];
+        [mArray addObject:view];
+        for (int i = 0; i < 3; i++) {
             UIViewController *viewController = [[UIViewController alloc] init];
             viewController.view.backgroundColor = colorArray[i];
             [mArray addObject:viewController];
@@ -79,11 +82,6 @@
 - (void)pageContentView:(PageContentView *)contentView progress:(CGFloat)progress sourceIndex:(NSInteger)source targerIndex:(NSInteger)target{
     [_pageTitleView setTitleWithProgress:progress sourceIndex:source targetIndex:target];
 }
-
-
-
-
-
 
 
 @end

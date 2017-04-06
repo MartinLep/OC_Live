@@ -7,7 +7,6 @@
 //
 
 #import "PageTitleView.h"
-#import "UIColor+pwAddition.h"
 
 #define ScrollLineWith 2
 
@@ -121,8 +120,6 @@
 }
 
 - (void)setTitleWithProgress:(CGFloat)progress sourceIndex:(NSInteger)source targetIndex:(NSInteger)target{
-    NSLog(@"progress = %f,sourceIndex = %ld,targetIndex = %ld",progress,(long)source,(long)target);
-    
     UILabel *sourceLabel = _mLabelsArray[source];
     UILabel *targetLabel = _mLabelsArray[target];
     
@@ -133,8 +130,8 @@
     CGFloat moveToX = targetLabel.frame.origin.x - sourceLabel.frame.origin.x;
     CGFloat moveX = progress * moveToX;
     CGRect frame = _scrollLine.frame;
-    _scrollLine.frame = CGRectMake(sourceLabel.frame.origin.x+moveX, frame.origin.y, frame.size.width, frame.size.height);
     
+    _scrollLine.frame = CGRectMake(sourceLabel.frame.origin.x+moveX, frame.origin.y, frame.size.width, frame.size.height);
     sourceLabel.textColor = [UIColor pwColorWithRed:SelectColor[0]-colorData[0]*progress green:SelectColor[1]-colorData[1]*progress blue:SelectColor[2]-colorData[2]*progress];
     targetLabel.textColor = [UIColor pwColorWithRed:NormalColor[0]+colorData[0]*progress green:NormalColor[1]+colorData[1]*progress blue:NormalColor[2]+colorData[2]*progress];
     _currentIndex = target;
