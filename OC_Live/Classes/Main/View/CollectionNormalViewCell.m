@@ -43,8 +43,7 @@
     self.imageView.layer.masksToBounds = true;
     [self.contentView addSubview:self.imageView];
     [self.imageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.equalTo(_superView);
-        make.top.equalTo(_superView);
+        make.width.top.equalTo(_superView);
         make.bottom.equalTo(_superView).offset(-20);
     }];
 }

@@ -25,7 +25,6 @@
 		BD0B93641E967AB300B04BFA /* CollectionHeraderView.m in Sources */ = {isa = PBXBuildFile; fileRef = BD0B93621E967AB300B04BFA /* CollectionHeraderView.m */; };
 		BD0B93651E967AB300B04BFA /* CollectionHeraderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD0B93631E967AB300B04BFA /* CollectionHeraderView.xib */; };
 		BD0B93691E96800200B04BFA /* CollectionPrettyViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BD0B93671E96800200B04BFA /* CollectionPrettyViewCell.m */; };
-		BD0B936A1E96800200B04BFA /* CollectionPrettyViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BD0B93681E96800200B04BFA /* CollectionPrettyViewCell.xib */; };
 		BD4856F31E94F30B00DA47AE /* NSArray+NSLog.m in Sources */ = {isa = PBXBuildFile; fileRef = BD4856E21E94F30B00DA47AE /* NSArray+NSLog.m */; };
 		BD4856F41E94F30B00DA47AE /* NSString+Hash.m in Sources */ = {isa = PBXBuildFile; fileRef = BD4856E41E94F30B00DA47AE /* NSString+Hash.m */; };
 		BD4856F51E94F30B00DA47AE /* NSString+pwBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = BD4856E61E94F30B00DA47AE /* NSString+pwBase64.m */; };
@@ -69,7 +68,6 @@
 		BD0B93631E967AB300B04BFA /* CollectionHeraderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionHeraderView.xib; sourceTree = "<group>"; };
 		BD0B93661E96800200B04BFA /* CollectionPrettyViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionPrettyViewCell.h; sourceTree = "<group>"; };
 		BD0B93671E96800200B04BFA /* CollectionPrettyViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionPrettyViewCell.m; sourceTree = "<group>"; };
-		BD0B93681E96800200B04BFA /* CollectionPrettyViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionPrettyViewCell.xib; sourceTree = "<group>"; };
 		BD4856E11E94F30B00DA47AE /* NSArray+NSLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+NSLog.h"; sourceTree = "<group>"; };
 		BD4856E21E94F30B00DA47AE /* NSArray+NSLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+NSLog.m"; sourceTree = "<group>"; };
 		BD4856E31E94F30B00DA47AE /* NSString+Hash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Hash.h"; sourceTree = "<group>"; };
@@ -211,7 +209,6 @@
 				BD4857061E96360E00DA47AE /* CollectionNormalViewCell.m */,
 				BD0B93661E96800200B04BFA /* CollectionPrettyViewCell.h */,
 				BD0B93671E96800200B04BFA /* CollectionPrettyViewCell.m */,
-				BD0B93681E96800200B04BFA /* CollectionPrettyViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -464,7 +461,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD0B935C1E967A5100B04BFA /* Home.storyboard in Resources */,
-				BD0B936A1E96800200B04BFA /* CollectionPrettyViewCell.xib in Resources */,
 				BD0B93501E967A3900B04BFA /* Follow.storyboard in Resources */,
 				BD09EF4E1E8365C0000AC6CC /* LaunchScreen.storyboard in Resources */,
 				BD0B93601E967A8A00B04BFA /* Main.storyboard in Resources */,

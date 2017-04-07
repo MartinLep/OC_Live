@@ -9,6 +9,7 @@
 #import "CollectionHeraderView.h"
 #import "ReccommendViewController.h"
 #import "CollectionNormalViewCell.h"
+#import "CollectionPrettyViewCell.h"
 static NSString *NormalCellID = @"NormalCellID";
 static NSString *PrettyCellID = @"PrettyCellID";
 static NSString *HeaderViewID = @"HeaderViewID";
@@ -54,6 +55,7 @@ static NSString *HeaderViewID = @"HeaderViewID";
         _collection.dataSource = self;
         _collection.backgroundColor = [UIColor whiteColor];
         [_collection registerClass:[CollectionNormalViewCell class] forCellWithReuseIdentifier:NormalCellID];
+        [_collection registerClass:[CollectionPrettyViewCell class] forCellWithReuseIdentifier:PrettyCellID];
         [_collection registerNib:[UINib nibWithNibName:@"CollectionHeraderView" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:HeaderViewID];
     }
     return _collection;
@@ -72,14 +74,26 @@ static NSString *HeaderViewID = @"HeaderViewID";
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    CollectionNormalViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NormalCellID forIndexPath:indexPath];
-    [cell initUI];
-    cell.backgroundColor = [UIColor whiteColor];
-    return cell;
+    if(indexPath.section == 1){
+        CollectionPrettyViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:PrettyCellID forIndexPath:indexPath];
+        [cell setUpSubViews];
+        cell.backgroundColor = [UIColor whiteColor];
+        return cell;
+    }else{
+        CollectionNormalViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NormalCellID forIndexPath:indexPath];
+        [cell initUI];
+        cell.backgroundColor = [UIColor whiteColor];
+        return cell;
+    }
 }
 
 - (CGSize) collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-    return CGSizeMake(_ItemW,_NormalItemH);
+    if(indexPath.section == 1){
+        return CGSizeMake(_ItemW, _PrettyItemH);
+    }else{
+       return CGSizeMake(_ItemW,_NormalItemH);
+    }
+    
 }
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath{

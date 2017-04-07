@@ -10,4 +10,6 @@
 
 @interface CollectionPrettyViewCell : UICollectionViewCell
 
+- (void)setUpSubViews;
+
 @end
