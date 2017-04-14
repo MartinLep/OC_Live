@@ -11,7 +11,6 @@
 #import "HomeViewController.h"
 #import "PageContentView.h"
 #import "PageTitleView.h"
-#import "CommonValue.h"
 
 #define TitleHeight 40
 
@@ -57,7 +56,7 @@
 
 - (PageContentView *)pageContentView{
     if(_pageContentView == nil){
-        CGFloat contentH = ScreenH - StatusBarH - NavigationBarH - TitleHeight;
+        CGFloat contentH = ScreenH - StatusBarH - NavigationBarH - TitleHeight - TabBarH;
         CGRect frame = CGRectMake(0, StatusBarH + NavigationBarH + TitleHeight, ScreenW, contentH);
         NSMutableArray *mArray = [[NSMutableArray alloc] init];
         NSArray *colorArray = [NSArray arrayWithObjects:[UIColor blueColor],[UIColor yellowColor],[UIColor whiteColor],[UIColor orangeColor], nil];

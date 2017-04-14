@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AnchorGroup.h"
 
 @interface CollectionHeraderView : UICollectionReusableView
 
+@property (nonatomic,strong) AnchorGroup *anchor;
 @end

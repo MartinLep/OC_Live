@@ -17,6 +17,16 @@
 
 //头文件
 #import "Masonry.h"
-#import "CommonValue.h"
+#import "AFNetworking.h"
+#import "NetWorkTools.h"
+#import "UIView+pwAddition.h"
 #import "UIColor+pwAddition.h"
 #import "UIScreen+pwAddition.h"
+#import "UIImageView+WebCache.h"
+
+
+#define TabBarH 44
+#define StatusBarH 20
+#define NavigationBarH 44
+#define ScreenW [UIScreen mainScreen].bounds.size.width
+#define ScreenH [UIScreen mainScreen].bounds.size.height

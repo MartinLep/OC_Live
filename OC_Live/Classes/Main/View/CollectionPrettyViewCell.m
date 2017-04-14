@@ -10,11 +10,9 @@
 
 @interface CollectionPrettyViewCell ()
 
-@property (nonatomic,strong) UIImageView *imageView;
-@property (nonatomic,strong) UILabel *customersNumber;
-@property (nonatomic,strong) UILabel *roomLabel;
 @property (nonatomic,strong) UIImageView *locationImage;
 @property (nonatomic,strong) UILabel *locationLabel;
+
 
 @end
 
@@ -33,44 +31,44 @@
 
 - (void)setUpImageView{
     self.imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"live_cell_default_phone"]];
-    self.imageView.layer.cornerRadius = 3;
+    self.imageView.layer.cornerRadius = 5;
     self.imageView.layer.masksToBounds = true;
     [self.contentView addSubview:self.imageView];
     
-    [_imageView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.imageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.left.width.equalTo(_superView);
         make.bottom.equalTo(_superView).offset(-50);
     }];
 }
 
 - (void)setUpCustomersNumber{
-    self.customersNumber = [[UILabel alloc] init];
-    self.customersNumber.text = @"6666在线";
+    self.customersNumber = [[UIButton alloc] init];
     [self.customersNumber sizeToFit];
-    self.customersNumber.font = [UIFont systemFontOfSize:12];
-    self.customersNumber.textColor = [UIColor whiteColor];
-    self.customersNumber.layer.cornerRadius = 5;
+    self.customersNumber.titleLabel.font = [UIFont systemFontOfSize:12];
+    [self.customersNumber setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    self.customersNumber.userInteractionEnabled = false;
+    self.customersNumber.layer.cornerRadius = 2;
     self.customersNumber.layer.masksToBounds = true;
     self.customersNumber.backgroundColor = [UIColor colorWithDisplayP3Red:85/255.0 green:85/255.0 blue:85/255.0 alpha:0.8];
     [self.contentView addSubview:self.customersNumber];
     
-    [_customersNumber mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(_imageView).offset(5);
-        make.right.equalTo(_imageView).offset(-5);
+    [self.customersNumber mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.imageView).offset(5);
+        make.right.equalTo(self.imageView).offset(-5);
+        make.height.mas_equalTo(20);
     }];
 }
 
 - (void)setUpRoomLabel{
-    self.roomLabel = [[UILabel alloc] init];
-    self.roomLabel.text = @"MartinLee ShowTime";
-    self.roomLabel.textColor = [UIColor blackColor];
-    self.roomLabel.font = [UIFont systemFontOfSize:12];
-    self.roomLabel.backgroundColor = [UIColor clearColor];
-    [self.roomLabel sizeToFit];
-    [self.contentView addSubview:self.roomLabel];
+    self.nickNameLabel = [[UILabel alloc] init];
+    self.nickNameLabel.textColor = [UIColor blackColor];
+    self.nickNameLabel.font = [UIFont systemFontOfSize:12];
+    self.nickNameLabel.backgroundColor = [UIColor clearColor];
+    [self.nickNameLabel sizeToFit];
+    [self.contentView addSubview:self.nickNameLabel];
     
-    [_roomLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(_imageView.mas_bottom).offset(5);
+    [self.nickNameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.imageView.mas_bottom).offset(5);
         make.left.equalTo(_superView).offset(5);
     }];
 }
@@ -86,7 +84,6 @@
     }];
     
     self.locationLabel = [[UILabel alloc] init];
-    self.locationLabel.text = @"MartinLee";
     [self.locationLabel sizeToFit];
     self.locationLabel.textColor = [UIColor lightGrayColor];
     self.locationLabel.font = [UIFont systemFontOfSize:12];
@@ -99,4 +96,8 @@
     }];
 }
 
+- (void)setModel:(AnchorModel *)model{
+    [super setModel:model];
+    _locationLabel.text = model.anchor_city;
+}
 @end

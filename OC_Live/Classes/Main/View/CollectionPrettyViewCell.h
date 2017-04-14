@@ -6,9 +6,9 @@
 //  Copyright © 2017年 MartinLee. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "CollectionBaseCell.h"
 
-@interface CollectionPrettyViewCell : UICollectionViewCell
+@interface CollectionPrettyViewCell : CollectionBaseCell
 
 - (void)setUpSubViews;
 

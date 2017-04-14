@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "6C3076262B3DCDCC6E1AB7DE933A9826A4C09575",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "6C3076262B3DCDCC6E1AB7DE933A9826A4C09575" : 9223372036854775807,
+    "85D99758312457FDB493F321D7277D2A7BBC4423" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "B3C233BD-2E25-4DE1-A4D4-C058D1F04DCA",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "6C3076262B3DCDCC6E1AB7DE933A9826A4C09575" : "OC_Live\/",
+    "85D99758312457FDB493F321D7277D2A7BBC4423" : "..\/..\/Controls"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "OC_Live",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "OC_Live.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/MartinLep\/OC_Live",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "6C3076262B3DCDCC6E1AB7DE933A9826A4C09575"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "git.oschina.net:MartinLep\/pwControls.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "85D99758312457FDB493F321D7277D2A7BBC4423"
+    }
+  ]
+}
