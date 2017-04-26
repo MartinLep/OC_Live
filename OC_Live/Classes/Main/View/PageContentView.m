@@ -91,7 +91,6 @@ static NSString *collectionViewCell = @"CellIdentify";
     CGFloat currentOffsetX = scrollView.contentOffset.x;
     CGFloat scrollViewW = scrollView.bounds.size.width;
     
-    NSLog(@"currentOffsetX = %f",currentOffsetX);
     if(currentOffsetX > _startOffsetX){
         //左滑
         progress = currentOffsetX/scrollViewW - floor(currentOffsetX/scrollViewW);

@@ -8,11 +8,17 @@
 
 #import "CollectionHeraderView.h"
 
+@interface CollectionHeraderView ()
+@property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+
+@end
+
 @implementation CollectionHeraderView
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    // Initialization code
+- (void)setAnchor:(AnchorGroup *)anchor{
+    self.iconImageView.image = [UIImage imageNamed:anchor.icon_name];
+    self.titleLabel.text = anchor.tag_name;
 }
 
 @end

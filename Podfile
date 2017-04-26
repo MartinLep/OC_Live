@@ -6,5 +6,7 @@ platform :ios, '9.0'
 target 'OC_Live' do
 
 pod 'Masonry'
+pod 'AFNetworking'
+pod 'SDWebImage'
 
 end

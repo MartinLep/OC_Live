@@ -7,8 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AnchorModel.h"
+#import "CollectionBaseCell.h"
 
-@interface CollectionNormalViewCell : UICollectionViewCell
+@interface CollectionNormalViewCell : CollectionBaseCell
+
+
 
 - (void)initUI;
 
